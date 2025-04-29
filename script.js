@@ -1,17 +1,19 @@
 //your JS code here. If required.
 
-function  mapArray(str) {
-	let arr = [];
-	let map = new Map();
-	for(let t of str){
-		if(map.has(t)){
-			map.set(t,(arr.push(indexOf(map.get(t)))
-		}else{
-			map.set(t,indexOf(map.get(t)));
-		}
-	}
-	// return map;
-	return Object.fromEntries(map);
+function mapArray(str) {
+    let map = new Map();
+
+    for (let i = 0; i < str.length; i++) {
+        const letter = str[i];
+        if (map.has(letter)) {
+            map.get(letter).push(i);
+        } else {
+            map.set(letter, [i]);
+        }
+    }
+
+    return Object.fromEntries(map);
 }
+
 let str = "dodo";
-console.log(mapArray(str));
+console.log(mapArray(str)); // { d: [0, 2], o: [1, 3] }
