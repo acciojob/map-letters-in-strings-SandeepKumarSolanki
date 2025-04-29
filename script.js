@@ -10,7 +10,8 @@ function  mapArray(str) {
 			map.set(t,indexOf(map.get(t)));
 		}
 	}
-	return map;
+	// return map;
+	return Object.fromEntries(map);
 }
 let str = "dodo";
 console.log(mapArray(str));
